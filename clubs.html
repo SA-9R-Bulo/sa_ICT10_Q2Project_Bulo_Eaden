@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>School Club Information</title>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<!-- Other styles and resources -->
+<link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+<script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+<style>
+/* Renamed variables to match light blue theme */
+:root {
+    --lightblue-dark: #3399ff; /* Darker light blue for headers and borders */
+    --lightblue-medium: #66ccff; /* Medium shade for hover effects */
+    --lightblue-light: #99ccff; /* Lighter blue for backgrounds */
+    --lightblue-very-light: #e6f0ff; /* Very light background */
+    --gold-accent: #ffd700;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 20px; /* For fixed navbar space */
+    background: linear-gradient(135deg, var(--lightblue-very-light), #ffffff);
+    color: #003366; /* Deep blue text for contrast */
+    transition: background 0.5s;
+}
+
+/* Navbar styles using the new variables */
+.navbar {
+    background-color: var(--lightblue-dark);
+    padding: 15px 0;
+}
+.navbar-nav .nav-link:hover {
+    transform: scale(1.2);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+h1 {
+    color: var(--lightblue-dark);
+    text-align: center;
+    border-bottom: 2px solid var(--lightblue-dark);
+    padding-bottom: 10px;
+    margin-top: 20px;
+}
+label {
+    font-weight: 700;
+    display: block;
+    margin-top: 20px;
+}
+select, button {
+    padding: 12px;
+    margin: 10px 0;
+    width: 100%;
+    border: 1px solid var(--lightblue-dark);
+    border-radius: 8px;
+    font-size: 1em;
+    transition: all 0.3s;
+}
+select:focus, button:hover {
+    outline: none;
+    box-shadow: 0 0 8px rgba(51, 153, 255, 0.3);
+}
+button {
+    padding: 12px;
+    margin: 10px 0;
+    width: 100%;
+    border: 1px solid var(--lightblue-medium);
+    border-radius: 8px;
+    font-size: 1em;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+button:hover {
+    transform: scale(1.1); 
+    box-shadow: 0 4px 15px rgba(51, 153, 255, 0.3);
+}
+#club-info {
+    background-color: #cceeff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    border-left: 6px solid var(--lightblue-dark);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+#club-info h2 {
+    margin-top: 0;
+    color: #006699; /* Slightly darker shade for headings */
+}
+#club-image {
+    margin: auto;
+    display: none;
+    width: 600px;
+    height: 400px;
+    object-fit: cover;
+    border: 2px solid var(--lightblue-dark);
+    border-radius: 4px;
+    margin-top: 15px;
+    transition: all 0.3s;
+}
+#club-image:hover {
+    transform: scale(1.1); 
+    border-color: var(--lightblue-medium);
+    box-shadow: 0 4px 15px rgba(51, 153, 255, 0.3);
+}
+</style>
+</head>
+<body>
+
+<!-- Fixed Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Pyrotechnic University of Pasig</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="grade_calculator.html">Grade Calculator</a></li>
+        <li class="nav-item"><a class="nav-link active" href="clubs.html">Clubs</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+    <h1>School Club Information</h1>
+    
+    <label for="club-select">Select a club:</label>
+    <select id="club-select">
+      <option value="">-- Select a club --</option>
+      <option value="chess">Chess Club</option>
+      <option value="drama">Drama Club</option>
+      <option value="robotics">Robotics Club</option>
+      <option value="debate">Debate Club</option>
+      <option value="art">Art Club</option>
+    </select>
+    
+    <button id="show-info" py-click="show_club_info">Show Club Information</button>
+    
+    <pre id="club-info"></pre>
+    <img id="club-image" src="" alt="Club Image" />
+</div>
+
+<!-- Script for displaying info -->
+<script type="py" src="main.py"></script>
+
+<script>
+    document.getElementById('show-info').addEventListener('click', () => {
+        const select = document.getElementById('club-select');
+        const club = select.value;
+        const info = document.getElementById('club-info');
+
+        const images = {
+            'chess': 'https://images.chesscomfiles.com/uploads/v1/article/17623.87bb05cd.668x375o.47d81802f1eb@2x.jpeg',
+            'drama': 'https://images.unsplash.com/photo-1549924231-f129b911e442',
+            'robotics': 'https://boomset.com/wp-content/uploads/2025/09/The-Role-of-Robotics-in-Everyday-Life-1024x576.png',
+            'debate': 'https://images.unsplash.com/photo-1549924231-f129b911e442',
+            'art': 'https://aaft.com/blog/wp-content/uploads/2025/03/3901.jpg'
+        };
+
+        if (club && images[club]) {
+            info.textContent = `Information about ${club}:\n\n[Details about the ${club} club go here.]`;
+            document.getElementById('club-image').src = images[club];
+            document.getElementById('club-image').style.display = 'block';
+        } else {
+            info.textContent = 'Please select a club to see the information.';
+            document.getElementById('club-image').style.display = 'none';
+        }
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

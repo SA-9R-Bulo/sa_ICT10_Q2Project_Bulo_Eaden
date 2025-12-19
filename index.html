@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pyrotechnic University of Pasig - Home</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+<script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+<style>
+:root {
+  --blue-dark: #064966; 
+  --red-medium: #6E1B1B; 
+  --brown-light: #A05252; 
+  --brown-bit-light: #844e4e; 
+  --gold-accent: #FFC107; 
+  --maroon-dark: var(--blue-dark); /* Added this line to fix background color */
+}
+
+body {
+  background-color: var(--brown-bit-light);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.navbar {
+  background-color: var(--blue-dark);
+}
+
+.section-title {
+  color: var(--blue-dark);
+  font-weight: bold;
+}
+
+.btn-card {
+  background-color: var(--gold-accent);
+  color: #fff;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.btn-card:hover {
+  background-color: #e0a800;
+}
+
+.card {
+  position: relative;
+  perspective: 1000px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  border: none;
+  background-color: #fff;
+}
+
+.card:hover {
+  transform: rotateY(10deg) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 2px solid var(--red-medium);
+}
+
+.card-body {
+  padding: 20px;
+  background-color: #fff;
+}
+
+footer {
+  background-color: var(--blue-dark);
+  color: #fff;
+}
+
+/* Additional styling for headers and sections */
+h2.section-title {
+  border-bottom: 3px solid var(--gold-accent);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.navbar-nav .nav-link:hover {
+    transform: scale(1.2);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Pyrotechnic University of Pasig</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="grade_calculator.html">Grade Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="clubs.html">Clubs</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<section class="hero d-flex align-items-center justify-content-center text-center" style="background-color: var(--maroon-dark); height: 100vh; color: white;">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Welcome to Bulo University of Manila</h1>
+    <p class="lead mt-4">Ignite your passion for learning and innovation with us.</p>
+  </div>
+</section>
+
+<section id="about" class="container py-5">
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <h2>About Us</h2>
+      <p>Pyrotechnic University of Pasig is committed to excellence in education, fostering innovation and leadership among our students. Join us in shaping the future.</p>
+    </div>
+    <div class="col-md-6">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="img-fluid rounded" alt="University Campus" />
+    </div>
+  </div>
+</section>
+
+<section id="programs" class="container py-5">
+  <h2 class="section-title mb-4 text-center">Our Programs</h2>
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="STEM Program" />
+        <div class="card-body">
+          <h5 class="card-title">STEM Program</h5>
+          <p class="card-text">Our Science, Technology, Engineering, and Mathematics program prepares students for careers in these high-demand fields through hands-on learning and research opportunities.</p>
+          <a href="#" class="btn btn-card">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80" class="card-img-top" alt="Arts Program" />
+        <div class="card-body">
+          <h5 class="card-title">Arts Program</h5>
+          <p class="card-text">Our comprehensive arts program nurtures creativity through visual arts, music, theater, and dance, helping students develop their artistic talents and appreciation.</p>
+          <a href="#" class="btn btn-card">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Sports Program" />
+        <div class="card-body">
+          <h5 class="card-title">Sports Program</h5>
+          <p class="card-text">We offer a wide range of competitive and recreational sports programs that promote physical fitness, teamwork, and sportsmanship among our students. Josua Ronnel Ortiz.</p>
+          <a href="#" class="btn btn-card">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-dark text-white py-4" id="contact">
+  <div class="container text-center">
+    <p>&copy; 2024 Pyrotechnic University of Pasig. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
